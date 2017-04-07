@@ -1,0 +1,30 @@
+<div class="home-frame">
+    <div class="clearbanner"></div>
+    <div class="tutorials-title">
+   
+
+    </div>
+    <div class="container">
+      <table>
+  <thead>
+  <tr>
+    <th>Category Name</th>
+    <th>Status</th>
+    <th>Created Date</th>
+    <th><a href="#/new_category">add<i class="icon-plus-sign"></i></a></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="project in list | orderBy:'name'">
+    <td>{{project.name}}</td>
+    <td>{{project.status}}</td>
+    <td>{{project.create_date}}</td>
+    <td>
+      <a ng-href="#/edit_category/{{project.$id}}">edit<i class="icon-pencil"></i></a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+        
+    </div>
+</div>
