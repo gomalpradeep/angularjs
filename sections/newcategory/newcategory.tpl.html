@@ -10,7 +10,7 @@
     <label>Category Status</label>
 
 <select name="status" ng-model="editProject.project.status" required>
-<option ng-repeat="x in statusoption" value="{{x.value}}">{{x.model}}</option>
+<option ng-repeat="x in status" value="{{x.value}}">{{x.model}}</option>
 </select>
 
     <span ng-show="myForm.status.$error.required && !myForm.status.$pristine" class="help-inline">

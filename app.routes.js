@@ -12,12 +12,12 @@ function config ($routeProvider) {
 
         })
         .when('/new_category', {
-            templateUrl: 'sections/category/add.tpl.html',
-            controller: 'categoryController as category'
+            templateUrl: 'sections/category/newcategory.tpl.html',
+            controller: 'newcategoryController as new_category'
         })
         .when('/category', {
             templateUrl: 'sections/category/category.tpl.html',
-            controller: 'newcategoryController as new_category'
+            controller: 'categoryController as category'
         })
         .when('/premieres', {
             templateUrl: 'sections/premieres/premieres.tpl.html',
