@@ -15,6 +15,10 @@ function config ($routeProvider) {
             templateUrl: 'sections/category/newcategory.tpl.html',
             controller: 'newcategoryController'
         })
+        .when('/edit_category/:id',{
+            templateUrl: 'sections/category/newcategory.tpl.html',
+            controller: 'editcategoryController'
+        })
         .when('/category', {
             templateUrl: 'sections/category/category.tpl.html',
             controller: 'categoryController as category'

@@ -15,6 +15,16 @@
                 return $query->result();
         }
         
+        public function get_category_byid()
+        {       
+              $postdata = file_get_contents("php://input");
+               $request = json_decode($postdata);
+          
+                $this->db->where('id',$request);
+                $query = $this->db->get('category');
+                $result= $query->result();
+                return json_encode($result);
+        }
 
          public function get_category()
         {

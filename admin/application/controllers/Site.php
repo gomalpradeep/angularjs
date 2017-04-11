@@ -21,7 +21,10 @@ class Site extends CI_Controller {
             echo   $this->site_model->set_category();
 
         }
-
+        public function get_category_byid(){
+            $result=  $this->site_model->get_category_byid();
+            echo json_encode($result);
+        }
         public function delete_category(){
             echo   $this->site_model->delete_category();
         }
