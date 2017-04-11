@@ -11,7 +11,8 @@
     <th>Category Name</th>
     <th>Status</th>
     <th>Created Date</th>
-    <th><a href="#/new_category">add<i class="icon-plus-sign"></i></a></th>
+    <th><a href="#/new_category">Add<i class="icon-plus-sign"></i></a></th>
+    <th>Delete</th>
   </tr>
   </thead>
   <tbody>
@@ -20,8 +21,10 @@
     <td>{{project.status}}</td>
     <td>{{project.create_date}}</td>
     <td>
-      <a ng-href="#/edit_category/{{project.$id}}">edit<i class="icon-pencil"></i></a>
+      <a ng-href="#/edit_category/{{project.$id}}"> Edit <i class="icon-pencil"></i></a>
     </td>
+    <td>
+      <a href="javascript:0" ng-click="delete(project.id)"> Delete <i class="icon-trash"></a></td>
   </tr>
   </tbody>
 </table>

@@ -14,6 +14,7 @@
                 $query = $this->db->get('entries', 10);
                 return $query->result();
         }
+        
 
          public function get_category()
         {
@@ -21,6 +22,32 @@
                 $result= $query->result();
                 return json_encode($result);
         }
+
+         public function set_category()
+        {
+               $postdata = file_get_contents("php://input");
+               $request = json_decode($postdata);
+
+                $name = $request->name;
+                $status = $request->status;
+                $this->name    = $name; // please read the below note
+                $this->status  = $status;
+                $this->create_date     = date('Y-m-d H:i:s');
+             return   $this->db->insert('category', $this);
+
+               
+        }
+        public function delete_category(){
+                $postdata = file_get_contents("php://input");
+                $request = json_decode($postdata);
+                $this->db->where('id', $request);
+            return $this->db->delete('category');       
+        }
+
+        public function check_unique_category($value){
+            print_r($value);
+        }
+
         public function get_product(){
                  $query = $this->db->get('product');
                 $result= $query->result();

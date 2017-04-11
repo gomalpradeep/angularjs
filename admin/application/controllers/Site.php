@@ -13,7 +13,17 @@ class Site extends CI_Controller {
         }
         public function get_category(){
 
-             echo  $this->site_model->get_category();
+            echo  $this->site_model->get_category();
+        }
+
+        public function set_category(){
+
+            echo   $this->site_model->set_category();
+
+        }
+
+        public function delete_category(){
+            echo   $this->site_model->delete_category();
         }
 
         public function viewcategory(){
