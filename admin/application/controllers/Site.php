@@ -29,6 +29,10 @@ class Site extends CI_Controller {
             echo   $this->site_model->delete_category();
         }
 
+        public function update_category(){
+            echo   $this->site_model->update_category();
+        }
+
         public function viewcategory(){
 
              $data['result']=    $this->site_model->get_category();

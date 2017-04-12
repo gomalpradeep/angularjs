@@ -23,7 +23,23 @@
                 $this->db->where('id',$request);
                 $query = $this->db->get('category');
                 $result= $query->result();
-                return json_encode($result);
+                return $result[0];
+        }
+
+        public function update_category(){
+              $postdata = file_get_contents("php://input");
+               $request = json_decode($postdata);
+             //  print_r($request);die;
+                $name = $request->name;
+                $id = $request->id;
+
+                $status = $request->status;
+                $this->name    = $name; // please read the below note
+                $this->status  = $status;
+       
+
+                      $this->db->where('id',$id);
+             return   $this->db->update('category', $this);
         }
 
          public function get_category()

@@ -10,8 +10,8 @@
    <div class="control-group" ng-class="{error: myForm.status.$invalid && !myForm.status.$pristine}">
     <label>Category Status</label>
 
-    <select name="status" ng-model="editProject.status" required>
-     <option ng-repeat="x in editProject.statusoption" value="{{x.id}}">{{x.name}}</option>
+    <select name="status" ng-model="editProject.status"   required>
+     <option ng-repeat="x in editProject.statusoption" ng-selected="editProject.selectedItemvalue == {{x.id}}" value="{{x.id}}">{{x.name}}</option>
     </select>
 
     <span ng-show="myForm.status.$error.required && !myForm.status.$pristine" class="help-inline">
