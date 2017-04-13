@@ -1,3 +1,4 @@
+
 <div class="home-frame">
     <div class="clearbanner"></div>
     <div class="tutorials-title">
@@ -5,7 +6,7 @@
 
     </div>
     <div class="container">
-      <table>
+      <table  class="table table-striped">
   <thead>
   <tr>
     <th>Category Name</th>
@@ -18,7 +19,8 @@
   <tbody>
   <tr ng-repeat="project in list | orderBy:'name'">
     <td>{{project.name}}</td>
-    <td>{{project.status}}</td>
+    <td ng-if="project.status==0">Enable</td>
+    <td ng-if="project.status==1">Disable</td>
     <td>{{project.create_date}}</td>
     <td>
       <a ng-href="#/edit_category/{{project.id}}"> Edit <i class="icon-pencil"></i></a>
@@ -27,7 +29,14 @@
       <a href="javascript:0" ng-click="delete(project.id)"> Delete <i class="icon-trash"></a></td>
   </tr>
   </tbody>
+  
+  
 </table>
-        
+        <pagination 
+  ng-model="currentPage"
+  total-items="8"
+  max-size="maxSize"  
+  boundary-links="true">
+</pagination>
     </div>
 </div>

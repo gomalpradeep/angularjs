@@ -12,8 +12,8 @@ class Site extends CI_Controller {
                 echo 'Hello World!';
         }
         public function get_category(){
-
-            echo  $this->site_model->get_category();
+            $result=json_encode($this->site_model->get_category());
+            echo $result;
         }
 
         public function set_category(){

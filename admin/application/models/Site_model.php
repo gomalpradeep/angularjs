@@ -46,7 +46,7 @@
         {
                 $query = $this->db->get('category');
                 $result= $query->result();
-                return json_encode($result);
+                return $result;
         }
 
          public function set_category()
