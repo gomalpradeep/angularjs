@@ -31,6 +31,7 @@
               
                 <li><a href="#/search">SEARCH</a></li>
                 <li><a href="#/category">Category</a></li>
+                <li><a href="#/product">Product</a></li>
             </ul>
         </div>
     </header>
@@ -62,7 +63,8 @@
         <script src="assets/js/angular-preload-image.min.js"></script>
         <script src="assets/js/ui-bootstrap-tpls-0.10.0.min.js"></script>
 
-        
+        <script src="assets/js/ng-file-upload-shim.js"></script> <!-- for no html5 browsers support -->
+<script src="assets/js/ng-file-upload.js"></script>
     <!-- / -->
     <!-- endbuild -->
     <!-- build:js app.min.js -->
@@ -86,7 +88,9 @@
         <script src="sections/category/newcategory.ctrl.js"></script>
         <script src="sections/category/editcategory.ctrl.js"></script>
 
-
+        <script src="sections/product/product.ctrl.js"></script>
+        <script src="sections/product/newproduct.ctrl.js"></script>
+        <script src="sections/product/editproduct.ctrl.js"></script>
     <!-- / -->
     <!-- SERVICES -->
         <script src="services/show.fct.js"></script>

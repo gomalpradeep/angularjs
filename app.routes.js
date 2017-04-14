@@ -23,6 +23,18 @@ function config ($routeProvider) {
             templateUrl: 'sections/category/category.tpl.html',
             controller: 'categoryController as category'
         })
+        .when('/new_product', {
+            templateUrl: 'sections/product/newproduct.tpl.html',
+            controller: 'newproductController'
+        })
+        .when('/edit_product/:id',{
+            templateUrl: 'sections/product/newproduct.tpl.html',
+            controller: 'editproductController'
+        })
+        .when('/product', {
+            templateUrl: 'sections/product/product.tpl.html',
+            controller: 'productController as product'
+        })
         .when('/premieres', {
             templateUrl: 'sections/premieres/premieres.tpl.html',
             controller: 'PremieresController as premieres',

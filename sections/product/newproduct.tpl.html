@@ -1,0 +1,44 @@
+<form name="myForm" >
+
+<div class="control-group" ng-class="{error: myForm.category.$invalid && !myForm.category.$pristine}">
+    <label>Category Name</label>
+  <select name="category" ng-model="editProject.category"   required>
+     <option ng-repeat="x in editProject.categoryoption" ng-selected="editProject.selectedcategoryvalue == {{x.id}}" value="{{x.id}}">{{x.name}}</option>
+    </select>
+
+    <span ng-show="myForm.category.$error.required && !myForm.category.$pristine" class="help-inline">
+        Required {{myForm.category.$pristine}}</span>
+  </div>
+
+  <div class="control-group" ng-class="{error: myForm.name.$invalid && !myForm.name.$pristine}">
+    <label>Product Name</label>
+    <input type="text" name="name"  ng-model="editProject.name" uniqueField required>
+    <span ng-show="myForm.name.$error.required && !myForm.name.$pristine" class="help-inline">
+    <span ng-show="myForm.name.$error.uniqueField">User Name already exists.</span>
+        Required {{myForm.name.$pristine}}</span>
+  </div>
+  
+   <div class="control-group"  ng-class="{error: myForm.file.$invalid && !myForm.file.$pristine}">
+      <input type = "file"  accept="image/*" file-model = "editProject.myFile"/>
+      <button ng-click = "uploadFile()">upload me</button>
+  </div>
+
+   <div class="control-group" ng-class="{error: myForm.status.$invalid && !myForm.status.$pristine}">
+    <label>Product Status</label>
+
+    <select name="status"  ng-model="editProject.status"   required>
+     <option ng-repeat="x in editProject.statusoption" ng-selected="editProject.selectedItemvalue == {{x.id}}" value="{{x.id}}">{{x.name}}</option>
+    </select>
+
+    <span ng-show="myForm.status.$error.required && !myForm.status.$pristine" class="help-inline">
+        Required {{myForm.status.$pristine}}</span>
+  </div>
+ 
+ 
+  <a href="#/product" class="btn">Cancel</a>
+  <input type="button" ng-click="reset(form)" value="Reset" />
+  <button ng-click="update(editProject)" ng-disabled="myForm.$invalid"
+          class="btn btn-primary">Save</button>
+  <button ng-click="editProject.destroy()"
+          ng-show="editProject.$id" class="btn btn-danger">Delete</button>
+</form>
