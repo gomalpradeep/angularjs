@@ -6,35 +6,39 @@ angular
         PageValues.title = "CATEGORY";
         PageValues.description = "Add ,Edit and update.";
         //Setup view model object
-      $scope.todos = []; 
-            $scope.list = []  
-          ,$scope.currentPage = 1
-          ,$scope.numPerPage = 3
-          ,$scope.maxSize = 5;
+    
 
 
-  $scope.makeTodos = function() {
+
      $http.get('admin/site/get_category').
      success(function(data){ 
-
-  $scope.todos = []; 
-//console.log(JSON.stringify(data));
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 5; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
  
-        $scope.todos=data;
- $scope.$watch('currentPage + numPerPage', function() {
-    var begin = (($scope.currentPage - 1) * $scope.numPerPage)
-    , end = begin + $scope.numPerPage;
-  //  alert(begin);alert(end);
-    $scope.list = $scope.todos.slice(begin, end);
-   // console.log($scope.list);
 
-  });
-     // $scope.list = $scope.todos.slice($scope.currentPage-1, $scope.numPerPage);
-  
-   });  };
-  $scope.makeTodos(); 
+    });
+      $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+        $scope.filter = function() {
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+
+  $scope.sort_by = function(predicate) {
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
    
-      
+     
+ 
+
+     // $scope.list = $scope.todos.slice($scope.currentPage-1, $scope.numPerPage);
+ 
  
       $scope.delete = function(data) {     
    
@@ -55,4 +59,12 @@ angular
        });
     
 
-    } });
+    } }).filter('startFrom', function() {
+    return function(input, start) {
+        if(input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+});;
